@@ -30,6 +30,7 @@ sudo apt install apt install chromium chromium-l10n -y
 # Où installer les fichiers de config
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 sudo apt install zsh -y
+wget -P ~/.config/ https://raw.githubusercontent.com/VongoSanDi/dotfiles/master/aliases
 chsh -s $(which zsh)
 # Tuto https://thevaluable.dev/zsh-install-configure-mouseless/
 
