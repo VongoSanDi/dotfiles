@@ -1,8 +1,7 @@
 # Mise à jours après installation
-sudo apt update -y
-sudo apt upgrade -y
+sudo apt update -y && sudo apt upgrade -y
 
-# Font, FantasqueSanMono
+# Font: FantasqueSanMono
 # Depuis le site https://www.nerdfonts.com/font-downloads
 # Ou via wget
 wget -P ~/Téléchargements/font https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FantasqueSansMono.zip 
@@ -33,7 +32,8 @@ sudo apt install zsh -y
 wget -P ~/.config/ https://raw.githubusercontent.com/VongoSanDi/dotfiles/master/zsh/aliases
 wget -P ~/ https://raw.githubusercontent.com/VongoSanDi/dotfiles/master/zsh/.zshenv
 chsh -s $(which zsh)
-wget -P ~/.config/ 
+wget -P ~/.config/ -O - https://codeload.github.com/VongoSanDi/dotfiles/tar.gz/master | \
+  tar -xz --strip=2 dotfiles-master/zsh/zsh
 # Tuto https://thevaluable.dev/zsh-install-configure-mouseless/
 
 ## Installation nodejs + npm
