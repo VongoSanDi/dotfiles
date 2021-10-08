@@ -27,6 +27,8 @@ sudo apt install nvidia-driver -y
 sudo apt install apt install chromium chromium-l10n -y
 
 ## Installation et activation zsh
+# Où installer les fichiers de config
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 sudo apt install zsh -y
 chsh -s $(which zsh)
 # Tuto https://thevaluable.dev/zsh-install-configure-mouseless/

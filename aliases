@@ -1,0 +1,48 @@
+# +-----+
+# | Zsh |
+# +-----+
+
+alias d='dirs -v'
+for index ({1..9}) alias "$index"="cd +${index}"; unset index # directory stack
+
+# +----+
+# | ls |
+# +----+
+
+alias ls='ls -a --color=auto'
+alias lsl='ls -l'
+alias ll='ls -lahF'
+alias lls='ls -lahFtr'
+alias la='ls -A'
+alias l='ls -CF'
+
+# +----+
+# | cd |
+# +----+
+
+cdl() {
+cd "$1" && ls -lhr;
+}
+
+# +----+
+# | cp |
+# +----+
+
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias rm='rm -i'
+alias la='ls -alh'
+
+# +------+
+# | grep |
+# +------+
+
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# +-------+
+# |lazygit|
+# +-------+
+
+alias lg='lazygit'
