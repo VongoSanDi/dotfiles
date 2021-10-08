@@ -30,15 +30,11 @@ sudo apt install apt install chromium chromium-l10n -y
 # Où installer les fichiers de config
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 sudo apt install zsh -y
-wget -P ~/.config/ https://raw.githubusercontent.com/VongoSanDi/dotfiles/master/aliases
+wget -P ~/.config/ https://raw.githubusercontent.com/VongoSanDi/dotfiles/master/zsh/aliases
+wget -P ~/ https://raw.githubusercontent.com/VongoSanDi/dotfiles/master/zsh/.zshenv
 chsh -s $(which zsh)
+wget -P ~/.config/ 
 # Tuto https://thevaluable.dev/zsh-install-configure-mouseless/
-
-## Installation overlay informations système
-cd Téléchargements/
-wget https://github.com/aaaaadrien/perso-gnome-extension
-./perso-gnome-extension/install.sh
-gnome-shell-extension-tool -e perso-adrien
 
 ## Installation nodejs + npm
 sudo apt install curl
