@@ -4,7 +4,7 @@ sudo apt update -y && sudo apt upgrade -y
 # Font: FantasqueSanMono
 # Depuis le site https://www.nerdfonts.com/font-downloads
 # Ou via wget
-wget -P ~/Téléchargements/font https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FantasqueSansMono.zip 
+wget -P ~/Téléchargements/font https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FantasqueSansMono.zip
 unzip ~/Téléchargements/font/FantasqueSansMono.zip
 
 # On vérifie si le dossier existe déjà ou pas
@@ -61,3 +61,5 @@ https://github.com/neovim/neovim/releases
 # Récupéré la dernière version depuis https://github.com/jesseduffield/lazygit/tags
 #puis extraire puis copier l'appimage dans /usr/local/bin
 #fermez/rouvrir le terminal
+
+##TODO: Installer + configurer Hyper(terminal)
