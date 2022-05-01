@@ -57,6 +57,9 @@ https://golang.org/doc/install
 https://github.com/neovim/neovim/releases
 # Ne pas oublier d'ajouter les droits, puis renommer en juste nvim, puis déplacer vers /usr/local/bin
 
+#Eventuellement installer les packages pour FUSE
+https://docs.appimage.org/user-guide/troubleshooting/fuse.html
+
 ## Lazygit
 # Récupéré la dernière version depuis https://github.com/jesseduffield/lazygit/tags
 #puis extraire puis copier l'appimage dans /usr/local/bin
