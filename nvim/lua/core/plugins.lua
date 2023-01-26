@@ -58,12 +58,18 @@ return packer.startup(function(use)
 		end
 	}
 
-	-- Format
+	-- Formatter
 	use{
 		"mhartington/formatter.nvim",
 		config = function()
 			require("core.configs.formatter")
 		end,
+	}
+
+	use { 'kdheepak/lazygit.nvim',
+		config = function()
+			require("core.configs.lazygit")
+		end
 	}
 
 	-- Notification
