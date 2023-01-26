@@ -40,12 +40,6 @@ return packer.startup(function(use)
 	use { "wbthomason/packer.nvim" }
 
 	-- Theme
-	--[[use { "EdenEast/nightfox.nvim",
-		config = function()
-			require("core.configs.nightfox")
-		end
-	}]]
-
 	use{
 		'rose-pine/neovim',
 		as = 'rose-pine',
@@ -62,6 +56,14 @@ return packer.startup(function(use)
 		config = function()
 			require("core.configs.lualine")
 		end
+	}
+
+	-- Format
+	use{
+		"mhartington/formatter.nvim",
+		config = function()
+			require("core.configs.formatter")
+		end,
 	}
 
 	-- Notification

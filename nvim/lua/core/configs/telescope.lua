@@ -3,10 +3,6 @@ if (not status) then return end
 local actions = require('telescope.actions')
 local builtin = require("telescope.builtin")
 
-local function telescope_buffer_dir()
-  return vim.fn.expand('%:p:h')
-end
-
 local fb_actions = require "telescope".extensions.file_browser.actions
 
 telescope.setup {
@@ -20,6 +16,7 @@ telescope.setup {
   extensions = {
     file_browser = {
       theme = "dropdown",
+			respect_gitignore = true,
       -- disables netrw and use telescope-file-browser in its place
       hijack_netrw = true,
       mappings = {
@@ -49,46 +46,10 @@ telescope.setup {
 telescope.load_extension("file_browser")
 --telescope.load_extension('fzf')
 
--- File browser - Lists files in your current working directory, respects .gitignore in the working directory
-vim.keymap.set('n', '<leader>f',
-  function()
-    builtin.find_files({
-      no_ignore = false,
-      hidden = true
-    })
-  end)
-
--- Search for a string in your current working directory and get results live as you type, respects .gitignore
-vim.keymap.set('n', ';r', function()
-  builtin.live_grep()
-end)
-
--- Lists open buffers in current neovim instance
-vim.keymap.set('n', ';b', function()
-  builtin.buffers()
-end)
-
--- Lists available help tags and opens a new window with the relevant help info on <cr>
-vim.keymap.set('n', ';t', function()
-  builtin.help_tags()
-end)
-vim.keymap.set('n', ';;', function()
-  builtin.resume()
-end)
+vim.keymap.set("n", "<leader>fd", ":Telescope file_browser<CR>") -- Permet de chercher dans le dossier de travail
+vim.keymap.set("n", "<leader>fb", ":Telescope file_browser path=%:p:h<CR>", {silent = true}) -- Permet de chercher dans le dossier courant
+vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>", {silent = true})
+vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>", {silent = true}) -- Permet de chercher un caractère ou un mot dans le dossier de travail
 vim.keymap.set('n', '<leader>d', function()
   builtin.diagnostics()
-end)
-
--- Search for a file in all your repositories
-vim.keymap.set("n", "sf", function()
-  telescope.extensions.file_browser.file_browser({
-    path = "%:p:h",
-    cwd = telescope_buffer_dir(),
-    respect_gitignore = false,
-    hidden = true,
-    grouped = true,
-    previewer = false,
-    initial_mode = "normal",
-    layout_config = { height = 40 }
-  })
 end)

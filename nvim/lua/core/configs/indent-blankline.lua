@@ -35,5 +35,5 @@ ib.setup{
 	}
 }
 
-vim.opt.listchars:append "space:⋅"
+--vim.opt.listchars:append "space:⋅" -- Permet d'afficher un petit point entre chaque espace
 vim.opt.listchars:append "eol:↴"

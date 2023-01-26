@@ -1,4 +1,4 @@
-local status, lualine = pcall(require, "lualine")
+ local status, lualine = pcall(require, "lualine")
 if (not status) then return end
 
 local colors = {
@@ -34,17 +34,11 @@ local function modified()
   return ''
 end
 
-local nvimbattery = {
-	function()
-return require("battery").get_status_line()
-	end,
-	color = {fg = colors.violet, bg = colors.black}
-}
-
 lualine.setup {
   options = {
     icons_enabled = true,
     theme = 'rose-pine',
+		globalstatus = true,
     section_separators = { left = '', right = '' },
     component_separators = { left = '', right = '' },
     disabled_filetypes = {}
@@ -89,10 +83,11 @@ lualine.setup {
     },
     lualine_c = {},
     lualine_v = {},
-    lualine_w = { search_result, 'filetype' },
-    lualine_x = { '%l:%c', '%p%%/%L' },
-    lualine_y = { 'os.date("%T", os.time())' },
-		lualine_z = { nvimbattery }
+    --lualine_x = {"fileformat", 'filetype' },
+    lualine_x = {'filetype' },
+    --lualine_x = {search_result, 'filetype' },
+    lualine_y = { '%l:%c', '%p%%/%L' }, -- Affiche le nombre de ligne total du ficher en pourcentage et en nombre
+    lualine_z = { 'os.date("%T", os.time())' }, -- Affiche l'heure HH:MM:SS
   },
   inactive_sections = {
     lualine_a = {},

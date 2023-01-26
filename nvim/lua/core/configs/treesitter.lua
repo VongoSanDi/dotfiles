@@ -25,9 +25,12 @@ ts.setup {
     "vue",
 		"help"
   },
-  --autotag = {
-    --enable = true,
-  --},
+	ignore_install = {
+		"phpdoc"
+	},
+  autotag = {
+    enable = true,
+  },
 	auto_install = true,
 	sync_install = false,
 	extobjects = {
