@@ -36,6 +36,7 @@ chsh -s $(which zsh)
 wget -P ~/.config/ -O - https://codeload.github.com/VongoSanDi/dotfiles/tar.gz/master | \
   tar -xz --strip=2 dotfiles-master/zsh/zsh
 # Tuto https://thevaluable.dev/zsh-install-configure-mouseless/
+# Commandes pour zsh: https://www.sitepoint.com/zsh-commands-plugins-aliases-tools/
 
 ## Installation nodejs + npm
 sudo apt install curl
