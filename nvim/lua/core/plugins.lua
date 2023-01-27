@@ -199,6 +199,15 @@ return packer.startup(function(use)
 		end
 	}
 
+	-- Alpha, greeter for neovim
+	use { 'goolord/alpha-nvim',
+    requires = { 'nvim-tree/nvim-web-devicons' },
+    config = function ()
+			require("core.configs.alpha")
+        require'alpha'.setup(require'alpha.themes.startify'.config)
+    end
+}
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if packer_bootstrap then
