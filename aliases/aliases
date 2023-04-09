@@ -8,6 +8,7 @@ alias shutdown='sudo shutdown now'
 alias restart='sudo reboot'
 alias suspend='sudo pm-suspend'
 alias update='sudo apt update && sudo apt full-upgrade'
+alias clean="sudo apt autoremove && sudo apt purge && sudo apt autoclean"
 
 alias bigf= 'find / -xdev -type f -size +500M'  # display "big" files > 500M
 

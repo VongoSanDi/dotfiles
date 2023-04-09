@@ -44,3 +44,7 @@ export FZF_DEFAULT_OPTS="--height 60% \
 --pointer ▶ \
 --marker ⇒"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -n 10'"
+
+# NVM NodeJs version manager
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
