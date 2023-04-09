@@ -44,7 +44,7 @@ curl -fsSL https://deb.nodesource.com/setup_current.x | sudo bash -
 sudo apt install -y nodejs
 
 ## Installation yarn
-sudo npm install -g yarn typescript typescript-language-server
+sudo npm install -g yarn typescript typescript-language-server eslint_d
 
 ## Ajout du path de yarn
 export PATH="$PATH:$(yarn global bin)"
