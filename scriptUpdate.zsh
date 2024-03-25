@@ -1,4 +1,5 @@
 #!/bin/zsh
+#This is a script that allows me to update package not installed with the apt command such as neovim and starship
 
 # Basic system update && clean
 sudo apt update
