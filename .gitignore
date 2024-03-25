@@ -1,6 +1,6 @@
 /nvim/
 /nvim.bak/
-/zsh/plugins/
-/zsh/.zhistory
-/zsh/.zsh_history
-/zsh/.zcompdump
+zsh/plugins/
+zsh/.zcompdump
+zsh/.zhistory
+zsh/.zsh_history
