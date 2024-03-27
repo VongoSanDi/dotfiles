@@ -15,7 +15,19 @@ cd ~/Downloads/
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 chmod u+x nvim.appimage && mv nvim.appimage nvim
 sudo mv nvim /usr/local/bin
+if [ $? -eq 0 ]; then
+    echo "Neovim updated and moved correctly"
+else
+    rm nvim*
+    echo "Issue updating Neovim"
+fi
+
 # Starship update
 curl -sS https://starship.rs/install.sh | sh
+if [ $? -eq 0 ]; then
+    echo "Starship updated and moved correctly"
+else
+    echo "Issue updating Starship"
+fi
 
 cd ~
