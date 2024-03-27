@@ -19,18 +19,15 @@ alias bigf= 'find / -xdev -type f -size +500M'  # display "big" files > 500M
 alias d='dirs -v'
 for index ({1..9}) alias "$index"="cd +${index}"; unset index # directory stack
 
-alias kitty='kitty -o allow_remote_control=yes --single-instance --listen-on unix:@mykitty'
-
 # +----+
-# | ls |
+# |exa |
 # +----+
 
-alias ls='ls --color=auto'
-alias l='ls -l'
-alias ll='ls -lahF'
-alias lls='ls -lahFtr'
-alias la='ls -A'
-alias lc='ls -CF'
+# alias ls='ls --color=auto'
+alias ls="exa -lh --color=auto --icons"
+# alias ll='ls -lahF'
+alias ll="exa -lah --color-scale --color=auto --icons"
+alias lt="exa -lTh --color-scale --color=auto --icons"
 
 # +------+
 # | wget |

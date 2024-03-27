@@ -1,39 +1,44 @@
 #!/bin/zsh
 
 # Mise à jours après installation
-sudo apt update -y && sudo apt upgrade -y
+sudo apt update -y
+sudo apt upgrade -y
 
-## Installation outils complémentaires
-sudo apt install zsh
-exa wget tree ripgrep git cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3 acpi wl-clipboard warp-terminal
+# Packages needed
+sudo apt install zsh # Shell
+sudo apt install exa # A modern replacement for ls
+sudo apt install wget # Non-interactive network retriever
+sudo apt install ripgrep # ripgrep is a line-oriented search tool that recursively searches the current directory for a regex pattern
+sudo apt install git # Versionning
+sudo apt install cmake # Package building
+sudo apt install pkg-config # Helper tool used when compiling applications and librariesF
+sudo apt install libfreetype6-dev # Helper to render fonts
+sudo apt install libfontconfig1-dev # Font configuration and customization library, designed to locate fonts within the system and select them according to requirements specified by applications.
+sudo apt install python3 # Python
+sudo apt install wl-clipboardi # Wayland clipboard utilities
+sudo apt install warp-terminal # Terminal
+sudo apt install nvidia-driver # Nvidia drivers
+#sudo apt install apt install chromium chromium-l10n -y # Chromium, pas pour le moment
 
 # Font: FantasqueSanMono
 # Depuis le site https://www.nerdfonts.com/font-downloads
 # Ou via wget
-wget -P ~/Download/font https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FantasqueSansMono.zip
+wget -P ~/Downloads/font https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/FantasqueSansMono.zip
 
 # On vérifie si le dossier existe déjà ou pas
-if [ ! -d "~/.local/share/fonts/" ]
-then
-  mkdir ~/.local/share/fonts
-fi
+# if [ ! -d "/usr/local/share/fonts/" ]
+# then
+#   mkdir ~/.local/share/fonts
+# fi
 
 # Ensuite on decompresse la font dans le dossier
-sudo unzip ~/Download/font/FantasqueSansMono.zip -d /usr/local/share/fonts
-
-
+sudo unzip ~/Downloads/font/FantasqueSansMono.zip -d /usr/local/share/fonts
 #Ensuite il faut manuellement sélectionné la font dans le terminal de ton choix TODO: On peut pas l'automatiser ? En vérifiant le terminal par défaut ?
 
 # Fais en sorte que les ficheirs de configurations des programmes se mettent dans .config
 export XDG_CONFIG_HOME="$HOME/.config"
 
-## Installation des drivers Nvidia
-sudo apt install nvidia-driver -y
-
-## Installation Chromium -> TODO Pas pour le moment
-#sudo apt install apt install chromium chromium-l10n -y
-
-## Installation et activation zsh
+## Configuration ZSH
 # Où installer les fichiers de config
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 wget -P ~/.config/ https://raw.githubusercontent.com/VongoSanDi/dotfiles/master/zsh/aliases
