@@ -38,16 +38,23 @@ sudo unzip ~/Downloads/font/FantasqueSansMono.zip -d /usr/local/share/fonts
 # Fais en sorte que les ficheirs de configurations des programmes se mettent dans .config
 export XDG_CONFIG_HOME="$HOME/.config"
 
+# Dotfiles folder creation
+mkdir ~/.dotfiles
+mkdir ~/.dotfiles/zsh/
+
 ## Configuration ZSH
 # Où installer les fichiers de config
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
-wget -P ~/.config/ https://raw.githubusercontent.com/VongoSanDi/dotfiles/master/zsh/aliases
-wget -P ~/ https://raw.githubusercontent.com/VongoSanDi/dotfiles/master/zsh/.zshenv
 chsh -s $(which zsh)
-wget -P ~/.config/ -O - https://codeload.github.com/VongoSanDi/dotfiles/tar.gz/master | \
+wget -P ~/.dotfiles/ https://raw.githubusercontent.com/VongoSanDi/dotfiles/master/zsh/aliases # Téléchargement des alias
+wget -P ~/.dotfiles/zsh https://raw.githubusercontent.com/VongoSanDi/dotfiles/master/zsh/.zshenv
+wget -P ~/.dotfiles/zsh -O - https://codeload.github.com/VongoSanDi/dotfiles/tar.gz/master | \
   tar -xz --strip=2 dotfiles-master/zsh/zsh
+ln -s ~/.dotfiles/zsh/.zshenv ~/
 # Tuto https://thevaluable.dev/zsh-install-configure-mouseless/
 # Commandes pour zsh: https://www.sitepoint.com/zsh-commands-plugins-aliases-tools/
+
+source ~/.dotfiles/zsh/.zshrc # Sourcing the file
 
 ## Installation nodejs + npm
 sudo apt install curl
