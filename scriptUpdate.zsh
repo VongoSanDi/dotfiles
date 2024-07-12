@@ -43,7 +43,8 @@ update_nvim() {
 
 # Function to get the current installed version of Starship
 get_local_starship_version() {
-    starship --version | awk '{print $2}'
+    starship --version | head -n 1 | awk '{print $2}'
+    
 }
 
 # Function to get the latest version of Starship available on GitHub
