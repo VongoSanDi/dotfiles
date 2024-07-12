@@ -73,6 +73,28 @@ update_starship() {
     echo -e "${GREEN}Starship updated to version $latest_version."
 }
 
+# Function to get the latest version of Discord available on their website
+get_latest_discord_version() {
+    curl --silent "https://discord.com/api/download?platform=linux&format=deb" -I | grep -i location | sed -E 's/.*discord-(.*)\.deb.*/\1/'
+}
+
+# Function to download and install the latest Discord .deb package
+update_discord() {
+    local latest_version=$(get_latest_discord_version)
+    local deb_url="https://discord.com/api/download?platform=linux&format=deb"
+    local deb_path="/tmp/discord-latest.deb"
+
+    echo -e "${BLUE}Downloading Discord $latest_version .deb package..."
+    curl -L $deb_url -o $deb_path
+
+    echo -e "${BLUE}Installing Discord..."
+    sudo dpkg -i $deb_path
+    sudo apt-get install -f -y
+
+    echo -e "${GREEN}Discord updated to version $latest_version."
+}
+
+
 # Update packages
 update_packages
 
@@ -113,6 +135,22 @@ if [[ "$local_starship_version" != "$latest_starship_version" ]]; then
     fi
 else
     echo -e "${GREEN}Starship is already up to date."
+fi
+echo
+
+# Check and update Discord
+local_discord_version="N/A" # Discord does not provide an easy way to get the current installed version via CLI
+latest_discord_version=$(get_latest_discord_version)
+
+echo -e "${YELLOW}Local Discord version: $local_discord_version"
+echo -e "${YELLOW}Latest Discord version available: $latest_discord_version"
+
+read -r "REPLY?${YELLOW}A new version of Discord is available. Do you want to update Discord? (Y/n) " REPLY
+REPLY=${REPLY:-Y}
+if [[ "$REPLY" =~ ^[Yy]$ ]]; then
+    update_discord
+else
+    echo -e "${RED}Discord update canceled."
 fi
 echo
 
