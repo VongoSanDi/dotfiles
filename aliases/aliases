@@ -19,18 +19,19 @@ alias bigf= 'find / -xdev -type f -size +500M'  # display "big" files > 500M
 alias d='dirs -v'
 for index ({1..9}) alias "$index"="cd +${index}"; unset index # directory stack
 
-alias kitty='kitty -o allow_remote_control=yes --single-instance --listen-on unix:@mykitty'
-
 # +----+
-# | ls |
+# | exa |
 # +----+
 
-alias ls='ls --color=auto'
-alias l='ls -l'
-alias ll='ls -lahF'
-alias lls='ls -lahFtr'
-alias la='ls -A'
-alias lc='ls -CF'
+TREE_IGNORE="cache|log|logs|node_modules|vendor"
+
+alias ls=' exa --group-directories-first'
+alias la=' ls -a'
+alias ll=' ls --git -l'
+alias lt=' ls --tree -D -L 2 -I ${TREE_IGNORE}'
+alias ltt=' ls --tree -D -L 3 -I ${TREE_IGNORE}'
+alias lttt=' ls --tree -D -L 4 -I ${TREE_IGNORE}'
+alias ltttt=' ls --tree -D -L 5 -I ${TREE_IGNORE}'
 
 # +------+
 # | wget |
@@ -90,41 +91,11 @@ alias calc="noglob calcul"
 
 alias batl='bat --paging=never -l log'
 
-# +--------+
-# | pacman |
-# +--------+
-
-alias paci='sudo pacman -S'               # install
-alias pachi='sudo pacman -Ql'             # Pacman Has Installed - what files where installed in a package
-alias pacs='sudo pacman -Ss'              # search
-alias pacu='sudo pacman -Syu'             # update
-alias pacr='sudo pacman -R'               # remove package but not dependencies
-alias pacrr='sudo pacman -Rs'             # remove package with unused dependencies by other softwares
-alias pacrc='sudo pacman -Sc'             # remove pacman's cache
-alias pacro='pacman -Rns $(pacman -Qtdq)'
-alias pacrl='rm /var/lib/pacman/db.lck'   # pacman remove locks
-alias pacls="sudo pacman -Qe"
-alias pacc='sudo pacman -Sc'
-alias paccc='sudo pacman -Scc'            # empty the whole cache
-
 # +-------+
 # | fonts |
 # +-------+
 
 alias fonts='fc-cache -f -v'
-
-# +-----+
-# | yay |
-# +-----+
-
-alias yayi='yay -S'     # install
-alias yayhi='yay -Ql'   # Yay Has Installed - what files where installed in a package
-alias yays='yay -Ss'    # search
-alias yayu='yay -Syu'   # update
-alias yayr='yay -R'     # remove package but not dependencies
-alias yayrr='yay -Rs'   # remove package with unused dependencies by other softwares
-alias yayrc='yay -Sc'   # remove yay's cache
-alias yayls="yay -Qe"
 
 # +--------+
 # | netctl |
@@ -141,18 +112,6 @@ alias gor="go run"
 alias goc="go clean -i"
 alias gta="go test ./..."       # go test all
 alias gia="go install ./..."    # go install all
-
-# +------+
-# | Hugo |
-# +------+
-
-alias hugostart="hugo server -DEF --ignoreCache"
-
-# +--------+
-# | muffet |
-# +--------+
-
-alias deadlink="muffet -t 20"
 
 # +---------+
 # | netstat |
@@ -204,34 +163,6 @@ alias gj="git-jump"                                                             
 
 alias dif="git diff --no-index"                                                                   # Diff two files even if not in git repo! Can add -w (don't diff whitespaces)
 
-# +------+
-# | tmux |
-# +------+
-
-alias tmuxk='tmux kill-session -t'
-alias tmuxa='tmux attach -t'
-alias tmuxl='tmux list-sessions'
-
-# +-------+
-# | tmuxp |
-# +-------+
-
-alias mux='tmuxp load'
-
-
-# +------+
-# | lynx |
-# +------+
-
-alias lynx='lynx -vikeys -accept_all_cookies'
-
-# +----------------+
-# | udiskie-umount |
-# +----------------+
-
-alias ubackup='udiskie-umount $MEDIA/BACKUP'
-alias umedia='udiskie-umount $MEDIA/*'
-
 # +--------+
 # | docker |
 # +--------+
@@ -262,29 +193,6 @@ alias doc="$HOME/Documents"
 alias dow="$HOME/Downloads"
 alias dot="$HOME/.dotfiles"
 
-# Mindmaps
-alias freebrain="freemind $CLOUD/knowledge_base/_BRAINSTORMING/*.mm &> /dev/null &"
-alias freelists="freemind $CLOUD/knowledge_base/_LISTS/*.mm &> /dev/null &"
-alias freepain="freemind $CLOUD/knowledge_base/_PROBLEMS/*.mm &> /dev/null &"
-alias freeproj="freemind $CLOUD/knowledge_base/_PROJECTS/*.mm &> /dev/null &"
- 
 # Golang
 alias gosrc="$GOPATH/src/" # golang src
 alias gobin="$GOPATH/bin/" # golang bin
-
-# Clojure
-alias cljrepl='clojure -Sdeps "{:deps {com.bhauman/rebel-readline {:mvn/version \"0.1.4\"}}}" -m rebel-readline.main'
-
-# AWS
-alias awsa='aws --profile amboss-profile'
-
-# OBS
-
-alias obsn='prime-run obs&'
-
-# +---------+
-# | scripts |
-# +---------+
-
-alias ddg="duckduckgo"
-alias wiki="wikipedia"
