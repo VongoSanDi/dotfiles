@@ -4,5 +4,5 @@
 
 local opt = vim.opt
 
-opt.spelllang = { "en_us", "fr_fr" }
+opt.spelllang = { "en_us", "fr" }
 opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Sync with system clipboard
