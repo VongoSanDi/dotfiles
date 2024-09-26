@@ -9,7 +9,7 @@ BLUE="\033[0;34m" # Indicate important steps in the process, such as downloads, 
 # Function to update packages
 update_packages() {
     echo -e "${BLUE}Updating packages ..."
-    sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove && sudo apt autoclean && sudo apt clean
+    sudo apt update && sudo apt full-upgrade && sudo apt autoremove && sudo apt autoclean && sudo apt clean
     echo
 }
 
