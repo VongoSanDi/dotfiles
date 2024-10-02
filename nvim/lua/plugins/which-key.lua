@@ -3,6 +3,7 @@ return {
   opts = {
     spec = {
       { "<leader>un", group = "Notify" },
+      { "<leader>sr", desc = "Grug - Search & replace" },
     },
   },
 }
