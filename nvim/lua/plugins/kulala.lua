@@ -1,4 +1,8 @@
 return {
   "mistweaverco/kulala.nvim",
-  opts = {},
+  opts = {
+    -- split direction
+    -- possible values: "vertical", "horizontal"
+    split_direction = "horizontal",
+  },
 }
