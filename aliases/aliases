@@ -196,3 +196,6 @@ alias dot="$HOME/.dotfiles"
 # Golang
 alias gosrc="$GOPATH/src/" # golang src
 alias gobin="$GOPATH/bin/" # golang bin
+
+# Lazygit
+alias lg='lazygit'
